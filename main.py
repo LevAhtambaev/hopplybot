@@ -25,7 +25,7 @@ def send_welcome(message):
     sti = 'CAACAgIAAxkBAAEC3KxhNdjaRWshNWylS4A9NDwZo2IElAAClwUAAtJaiAGo2U4o023ROCAE'
     bot.send_sticker(message.chat.id, sti)
     bot.send_message(message.chat.id,
-                     "Добро пожаловать, {0.first_name}!\nЯ - {1.first_name}, укажи название города, в котором хочешь узнать погоду.".format(
+                     "Добро добро пожаловать, {0.first_name}!\nЯ - {1.first_name}, укажи название города, в котором хочешь узнать погоду.".format(
                          message.from_user, bot.get_me()))
 
     #bot.reply_to(message, "Привет! Напиши название города, в котором хочешь узнать погоду.")
