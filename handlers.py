@@ -21,7 +21,7 @@ async def send_vk(message: Message):
 
 @bot.message_handler(commands=['start', 'help'])
 async def send_welcome(message: Message):
-    sti = 'CAACAgIAAxkBAAEC3KxhNdjaRWshNWylS4A9NDwZo2IElAAClwUAAtJaiAGo2U4o023ROCAE'
+    sti = 'CAACAgIAAxkBAAEC41phPPQMtzW82Coq2DQqDFW-g5VKGQACNwsAAq8H8Es5ef5tC1CiRCAE'
     await bot.send_sticker(message.chat.id, sti)
     await bot.send_message(message.chat.id,
                            "Добро пожаловать, {0.first_name}!\nЯ - {1.first_name}, укажи название города, в котором хочешь узнать погоду.".format(
