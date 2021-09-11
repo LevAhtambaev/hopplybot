@@ -13,6 +13,7 @@ owm = pyowm.OWM('e2f1f9ed06a58b710345e4818925b09b', config_dict)
 async def send_welcome(message: Message):
     sti = 'CAACAgIAAxkBAAEC41phPPQMtzW82Coq2DQqDFW-g5VKGQACNwsAAq8H8Es5ef5tC1CiRCAE'
     await bot.send_sticker(message.chat.id, sti)
+    await bot.send_message(message.chat.id, "Test")
     me = message.from_user.first_name
     botname = await bot.get_me()
     welcomeText = f"Добро пожаловать, {me}! Я - {botname.frist_name}, укажи название города, в котором хочешь узнать погоду."
