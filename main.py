@@ -3,7 +3,7 @@ import asyncio
 from aiogram import Bot, Dispatcher, executor
 from config import BOT_TOKEN
 
-# heroku ps:scale worker=1
+# heroku ps:scale worker=1 heroku ps -a glacial-hollows-01655
 
 # bot = telebot.TeleBot(BOT_TOKEN, parse_mode=None)
 
