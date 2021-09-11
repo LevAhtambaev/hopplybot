@@ -16,9 +16,12 @@ async def send_welcome(message: Message):
     await bot.send_message(message.chat.id, "Testing")
     me = message.from_user.first_name
     botname = await bot.get_me()
-    await bot.send_message(message.chat.id, f"Добро пожаловать, {me}!<br>Я - {botname.frist_name}, укажи название города, в котором хочешь узнать погоду.")
     await bot.send_message(message.chat.id, f"Привет, {me}")
     await bot.send_message(message.chat.id, f"Привет, {botname.first_name}")
+    await bot.send_message(message.chat.id,
+                           f"Добро пожаловать, {me}! Я - {botname.frist_name}, укажи название города, в котором хочешь узнать погоду.")
+    await bot.send_message(message.chat.id,
+                           f"Добро пожаловать, {me}!<br>Я - {botname.frist_name}, укажи название города, в котором хочешь узнать погоду.")
 
 
 @dp.message_handler(content_types=['text'])
