@@ -14,11 +14,11 @@ async def send_welcome(message: Message):
     sti = 'CAACAgIAAxkBAAEC41phPPQMtzW82Coq2DQqDFW-g5VKGQACNwsAAq8H8Es5ef5tC1CiRCAE'
     await bot.send_sticker(message.chat.id, sti)
     await bot.send_message(message.chat.id, "Testing")
-    me = message.from_user
+    me = message.from_user.first_name
     botname = await bot.get_me()
-    await bot.send_message(message.chat.id,
-                           f"Добро пожаловать, {me.frist_name}!\nЯ - {botname.frist_name}, укажи название города, в котором хочешь узнать погоду.")
-
+    # await bot.send_message(message.chat.id,
+    #                       f"Добро пожаловать, {me}!\nЯ - {botname.frist_name}, укажи название города, в котором хочешь узнать погоду.")
+    await bot.send_message(message.chat.id, f"Привет, {me}")
 
 @dp.message_handler(content_types=['text'])
 async def send_echo(message: Message):
