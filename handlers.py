@@ -1,22 +1,12 @@
-import telebot
 import pyowm
 
 from main import bot, dp
 from aiogram.types import Message
 from pyowm.utils.config import get_default_config
-from telebot import types
 
 config_dict = get_default_config()
 config_dict['language'] = 'ru'
 owm = pyowm.OWM('e2f1f9ed06a58b710345e4818925b09b', config_dict)
-
-
-@dp.message_handler(commands=['vk'])
-async def send_vk(message: Message):
-    markup = types.InlineKeyboardMarkup(row_width=1)
-    btn_vk = types.InlineKeyboardButton(text='Лев Ахтамбаев', url='https://vk.com/hopply_time')
-    markup.add(btn_vk)
-    await bot.send_message(message.chat.id, "ВК автора :D", reply_markup=markup)
 
 
 @dp.message_handler(commands=['start', 'help'])
@@ -24,9 +14,10 @@ async def send_welcome(message: Message):
     sti = 'CAACAgIAAxkBAAEC41phPPQMtzW82Coq2DQqDFW-g5VKGQACNwsAAq8H8Es5ef5tC1CiRCAE'
     await bot.send_sticker(message.chat.id, sti)
     await bot.send_message(message.chat.id, "Testing")
+    me = message.from_user
+    botname = await bot.get_me()
     await bot.send_message(message.chat.id,
-                           "Добро пожаловать, {0.first_name}!\nЯ - {1.first_name}, укажи название города, в котором хочешь узнать погоду.".format(
-                               message.from_user, bot.get_me()))
+                           f"Добро пожаловать, {me.frist_name}!\nЯ - {botname.frist_name}, укажи название города, в котором хочешь узнать погоду.")
 
 
 @dp.message_handler(content_types=['text'])
