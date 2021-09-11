@@ -11,7 +11,7 @@ config_dict['language'] = 'ru'
 owm = pyowm.OWM('e2f1f9ed06a58b710345e4818925b09b', config_dict)
 
 
-@bot.message_handler(commands=['vk'])
+@dp.message_handler(commands=['vk'])
 async def send_vk(message: Message):
     markup = types.InlineKeyboardMarkup(row_width=1)
     btn_vk = types.InlineKeyboardButton(text='Лев Ахтамбаев', url='https://vk.com/hopply_time')
@@ -19,7 +19,7 @@ async def send_vk(message: Message):
     await bot.send_message(message.chat.id, "ВК автора :D", reply_markup=markup)
 
 
-@bot.message_handler(commands=['start', 'help'])
+@dp.message_handler(commands=['start', 'help'])
 async def send_welcome(message: Message):
     sti = 'CAACAgIAAxkBAAEC41phPPQMtzW82Coq2DQqDFW-g5VKGQACNwsAAq8H8Es5ef5tC1CiRCAE'
     await bot.send_sticker(message.chat.id, sti)
@@ -28,7 +28,7 @@ async def send_welcome(message: Message):
                                message.from_user, bot.get_me()))
 
 
-@bot.message_handler(content_types=['text'])
+@dp.message_handler(content_types=['text'])
 async def send_echo(message: Message):
     try:
         observation = owm.weather_manager().weather_at_place(message.text)
